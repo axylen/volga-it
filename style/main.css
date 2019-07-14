@@ -5,6 +5,8 @@
   --fw-light: 300;
   --fw-regular: 400;
   --fw-bold: 700;
+
+  --anim-cubic: cubic-bezier(.37,0,.27,1);
 }
 
 *,
