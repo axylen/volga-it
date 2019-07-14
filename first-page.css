@@ -1,0 +1,104 @@
+.section--first {
+  background-image: url(./img/BG.png);
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.first-section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100%;
+  margin: 0 150px;
+}
+
+.first-section-lead {
+  font-weight: var(--fw-light);
+
+  max-width: 560px;
+  margin: 50px 0;
+}
+
+.first-section-flashlight {
+  position: absolute;
+  top: 150px;
+  right: 0;
+}
+
+.flashlight__image {
+  position: absolute;
+  top: 0;
+  right: 119px;
+}
+.flashlight::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 1173px;
+  height: 873px;
+
+  content: "";
+
+  background-image: url(./img/Flashlight_1.png);
+}
+
+.flashlight-point-light {
+  position: absolute;
+  z-index: 10;
+  top: 498px;
+  right: 910px;
+
+  width: 83px;
+  height: 82px;
+
+  background-image: url(./img/Light_point.png);
+}
+
+.flashlight-wire {
+  position: absolute;
+  top: 372px;
+  right: 773px;
+
+  width: 1104px;
+  height: 798px;
+
+  background-image: url(./img/Wire.png);
+}
+
+
+.flashlight-light {
+  position: absolute;
+  top: -300px;
+  right: -250px;
+
+  width: 700px;
+  height: 593px;
+
+  background-image: url(./img/light_1_3.png);
+}
+.flashlight-light::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+
+  content: "";
+
+  background-image: url(./img/light_1_2.png);
+}
+.flashlight-light::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+
+  content: "";
+
+  background-image: url(./img/light_1_1.png);
+}

@@ -1,0 +1,52 @@
+:root {
+  --color-bg: #202020;
+  --color-text: #fff;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  text-rendering: geometricPrecision;
+}
+
+.heading {
+  font-weight: var(--fw-bold);
+
+  margin: 0;
+}
+.heading--1 {
+  font-size: 65px;
+}
+.heading--2 {
+  font-size: 40px;
+}
+.heading--3 {
+  font-size: 20px;
+}
+
+.section {
+  width: 100vw;
+  height: 100vh;
+}
