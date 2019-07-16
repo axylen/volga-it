@@ -1,0 +1,155 @@
+.section--third {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  padding-top: 150px;
+
+  background-image: linear-gradient(40deg, #1a1a1a, #434343);
+}
+
+.specifications-heading {
+  margin-bottom: 100px;
+  margin-left: -50px;
+}
+
+.specifications-row {
+  display: flex;
+  align-items: center;
+
+  margin: 30px 0;
+}
+
+.specification__images {
+  display: flex;
+  justify-content: center;
+
+  width: 640px;
+  margin: 0 auto;
+  padding: 0 140px 0 40px;
+}
+
+.flashlight-icon {
+  fill: #fff;
+}
+
+.flashlight-icon + .flashlight-icon {
+  margin-left: 80px;
+}
+
+.specification {
+  position: relative;
+
+  width: 320px;
+}
+
+.specification__btn {
+  font: inherit;
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+
+  position: relative;
+
+  padding: 0 0 0 57px;
+
+  cursor: pointer;
+  transition: opacity .4s var(--anim-cubic) .2s;
+
+  color: #fff;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.specification__btn::before {
+  position: absolute;
+  top: 50%;
+  left: 9px;
+
+  width: 14px;
+  height: 14px;
+
+  content: "";
+  transition: transform .3s var(--anim-cubic);
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.specification__btn:focus::before {
+  transform: translateY(-50%) scale(2);
+}
+
+.specification__btn::after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  width: 32px;
+  height: 32px;
+
+  content: "";
+  animation: specification-pulse 1s var(--anim-cubic) alternate infinite;
+
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+@keyframes specification-pulse {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+  100% {
+    transform: translateY(-50%) scale(1.25);
+  }
+}
+
+.specification--opened .specification__btn {
+  user-select: none;
+  transition: opacity .4s var(--anim-cubic);
+  pointer-events: none;
+
+  opacity: 0;
+}
+
+.specification__card {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+  width: 260px;
+  padding: 44px 20px;
+
+  transition: transform .5s var(--anim-cubic);
+  transform: translate(-50%, -50%) scale(0);
+
+  color: #000;
+  border-radius: 9px;
+  background-color: #fff;
+}
+
+.specification__heading {
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+
+  margin: 0 0 20px;
+
+  color: #202020;
+}
+
+.specification--opened .specification__card {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.specification-card__content {
+  transition: opacity .3s var(--anim-cubic);
+
+  opacity: 0;
+}
+
+.specification--opened .specification-card__content {
+  transition: opacity .3s var(--anim-cubic) .2s;
+
+  opacity: 1;
+}
