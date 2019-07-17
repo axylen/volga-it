@@ -1,43 +1,44 @@
 (function() {
   const section = document.querySelector('.section--second');
   const cards = [...document.querySelectorAll('.card')];
-  const easing = 'cubic-bezier(.37,0,.27,1)';
 
   const animationDurationMs = 200;
 
   const animationOptions = {
     duration: animationDurationMs,
-    easing,
-    fill: 'both',
+    easing: 'cubic-bezier(.37,0,.27,1)',
   };
   const fadeIn = element => element.animate([{ opacity: 0 }, { opacity: 1 }], animationOptions);
   const fadeOut = element => element.animate([{ opacity: 1 }, { opacity: 0 }], animationOptions);
 
+  const getCardContent = card => ({
+    content: card.querySelector('.card__content'),
+    contentDetailed: card.querySelector('.card__content-detailed'),
+    contentMinified: card.querySelector('.card__content-minified'),
+  });
+
   const openCard = cardToOpen => {
     for (let card of cards) {
+      const { content, contentDetailed, contentMinified } = getCardContent(card);
+
       card.classList.remove('card--closed');
-
-      const cardContent = card.querySelector('.card__content');
-      const cardContentDetailed = card.querySelector('.card__content-detailed');
-      const cardContentMinified = card.querySelector('.card__content-minified');
-
-      fadeOut(cardContent);
+      fadeOut(content);
 
       if (card === cardToOpen) {
         card.classList.add('card--opened');
 
         setTimeout(() => {
-          cardContentDetailed.style.display = 'flex';
-          cardContent.style.display = 'none';
-          fadeIn(cardContentDetailed);
+          contentDetailed.style.display = null;
+          content.style.display = 'none';
+          fadeIn(contentDetailed);
         }, animationDurationMs);
       } else {
         card.classList.add('card--minified');
 
         setTimeout(() => {
-          cardContentMinified.style.display = 'block';
-          cardContent.style.display = 'none';
-          fadeIn(cardContentMinified);
+          contentMinified.style.display = null;
+          content.style.display = 'none';
+          fadeIn(contentMinified);
         }, animationDurationMs);
       }
     }
@@ -49,32 +50,27 @@
       card.classList.remove('card--opened', 'card--minified');
       card.classList.add('card--closed');
 
-      const cardContent = card.querySelector('.card__content');
-      const cardContentDetailed = card.querySelector('.card__content-detailed');
-      const cardContentMinified = card.querySelector('.card__content-minified');
+      const { content, contentDetailed, contentMinified } = getCardContent(card);
 
-      fadeOut(cardContentDetailed);
-      fadeOut(cardContentMinified);
+      fadeOut(contentDetailed);
+      fadeOut(contentMinified);
 
       setTimeout(() => {
-        cardContentDetailed.style.display = 'none';
-        cardContentMinified.style.display = 'none';
-        cardContent.style.display = 'flex';
+        contentDetailed.style.display = 'none';
+        contentMinified.style.display = 'none';
+        content.style.display = 'flex';
 
-        fadeIn(cardContent);
+        fadeIn(content);
       }, animationDurationMs);
     }
     section.classList.remove('section--alt-bg');
   };
 
   cards.forEach(card => {
-    const openBtn = card.querySelector('.card-btn--open');
-    const closeBtn = card.querySelector('.card-btn--close');
-
     card.querySelector('.card__content-minified').style.display = 'none';
     card.querySelector('.card__content-detailed').style.display = 'none';
 
-    openBtn.addEventListener('click', () => openCard(card));
-    closeBtn.addEventListener('click', closeCard);
+    card.querySelector('.card-btn--open').addEventListener('click', () => openCard(card));
+    card.querySelector('.card-btn--close').addEventListener('click', closeCard);
   });
 })();
