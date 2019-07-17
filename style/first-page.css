@@ -121,34 +121,56 @@
   background-image: url(../img/light_1_1.png);
 }
 
-.amperage {
-  position: absolute;
-  top: 260px;
-  right: 230px;
+@supports (offset-distance: 0) {
+  .amperage {
+    position: absolute;
+    top: 260px;
+    right: 230px;
 
-  width: 80px;
-  height: 80px;
+    width: 80px;
+    height: 80px;
 
-  transform: scaleX(.9);
-  animation: wire-amperage 3s linear 3.5s backwards infinite;
+    transform: scaleX(.9);
+    animation: wire-amperage 3s linear 3.5s backwards infinite;
 
-  background-image: radial-gradient(#5fd5dd, hsla(184, 73%, 72%, .8) 15%, hsla(184, 73%, 72%, .05) 50%, transparent 60%);
+    background-image: radial-gradient(#5fd5dd, hsla(184, 73%, 72%, .8) 15%, hsla(184, 73%, 72%, .05) 50%, transparent 60%);
 
-  offset-path: path("M40,45 s-60,40 -120,65 c-27,6 -160,.5 -185,3 -160,15 -190,192 -205,372");
+    offset-path: path("M40,45 s-60,40 -120,65 c-27,6 -160,.5 -185,3 -160,15 -190,192 -205,372");
+  }
+
+  .amperage-1 {
+    animation-delay: 4s;
+  }
+  .amperage-2 {
+    animation-delay: 4.75s;
+  }
+  .amperage-3 {
+    animation-delay: 5.5s;
+  }
+  .amperage-4 {
+    animation-delay: 6.25s;
+  }
+
+  @keyframes wire-amperage {
+    0% {
+      opacity: 0;
+
+      offset-distance: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+
+      offset-distance: 100%;
+    }
+  }
 }
 
-.amperage-1 {
-  animation-delay: 4s;
-}
-.amperage-2 {
-  animation-delay: 4.75s;
-}
-.amperage-3 {
-  animation-delay: 5.5s;
-}
-.amperage-4 {
-  animation-delay: 6.25s;
-}
 
 @keyframes flashlight-slide-in {
   0% {
@@ -156,24 +178,5 @@
   }
   100% {
     transform: translate(0);
-  }
-}
-
-@keyframes wire-amperage {
-  0% {
-    opacity: 0;
-
-    offset-distance: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-
-    offset-distance: 100%;
   }
 }
