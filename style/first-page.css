@@ -77,7 +77,7 @@
   width: 1104px;
   height: 798px;
 
-animation: flashlight-slide-in 1.5s var(--anim-cubic) 2s backwards;
+  animation: flashlight-slide-in 1.5s var(--anim-cubic) 2s backwards;
 
   background-image: url(../img/Wire.png);
 }
@@ -129,11 +129,12 @@ animation: flashlight-slide-in 1.5s var(--anim-cubic) 2s backwards;
   width: 80px;
   height: 80px;
 
-
-  offset-path: path('M40,50 s-60,40 -120,65 c-27,6 -160,.5 -180,3 -160,15 -180,192 -180,192');
+  transform: scaleX(.9);
   animation: wire-amperage 3s linear 3.5s backwards infinite;
 
-  background-image: url(../img/Amperage.png);
+  background-image: radial-gradient(#5fd5dd, hsla(184, 73%, 72%, .8) 15%, hsla(184, 73%, 72%, .05) 50%, transparent 60%);
+
+  offset-path: path("M40,45 s-60,40 -120,65 c-27,6 -160,.5 -185,3 -160,15 -190,192 -205,372");
 }
 
 .amperage-1 {
@@ -161,12 +162,18 @@ animation: flashlight-slide-in 1.5s var(--anim-cubic) 2s backwards;
 @keyframes wire-amperage {
   0% {
     opacity: 0;
-    offset-distance: 0%;
+
+    offset-distance: 0;
   }
   10% {
     opacity: 1;
   }
+  90% {
+    opacity: 1;
+  }
   100% {
+    opacity: 0;
+
     offset-distance: 100%;
   }
 }
