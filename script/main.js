@@ -11,10 +11,26 @@
     fill: 'forwards',
   };
 
+  const hideSections = () => {
+    sections.forEach((el, id) => {
+      if (id === currentSection) return;
+      el.classList.add('section--hidden');
+    });
+  };
+  const showSections = () => {
+    sections.forEach(el => {
+      el.classList.remove('section--hidden');
+    });
+  };
+
+  hideSections();
+
   const disableAnimating = timeout => {
+    showSections();
     isAnimating = true;
     setTimeout(() => {
       isAnimating = false;
+      hideSections();
     }, timeout);
   };
 
@@ -66,4 +82,5 @@
       gotoSection(currentSection + 1);
     }
   });
+  
 })();

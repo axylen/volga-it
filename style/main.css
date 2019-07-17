@@ -59,3 +59,7 @@ body {
 .section-scroll {
   display: flex;
 }
+
+.section--hidden > * {
+  display: none !important;
+}
